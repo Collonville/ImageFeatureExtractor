@@ -1,0 +1,17 @@
+language: python
+python:
+  - "3.5"
+  - "3.5-dev"  # 3.5 development branch
+  - "3.6"
+  - "3.6-dev"  # 3.6 development branch
+branches:
+  only:
+    - master
+    - develop
+# command to install dependencies
+install:
+  - pip install coveralls
+script:
+  - python -m unittest discover -v
+after_success:
+  - coveralls
