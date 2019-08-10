@@ -9,7 +9,11 @@ branches:
     - master
     - develop
 # command to install dependencies
+before_install:
+  - pip install --upgrade pip
+  - pip install poetry
 install:
+  - poetry install -v
   - pip install coveralls
 script:
   - python -m unittest discover -v
