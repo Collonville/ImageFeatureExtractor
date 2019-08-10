@@ -7,9 +7,6 @@ from ife.features.features import Features
 
 
 class ImageReader:
-    def __init__(self):
-        None
-
     @classmethod
     def read_from_single_file(cls, file_path: str) -> Features:
         if not isinstance(file_path, str):
