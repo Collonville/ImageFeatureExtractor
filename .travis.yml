@@ -1,4 +1,5 @@
 language: python
+
 python:
   - "3.6"
   - "3.6-dev"
@@ -6,18 +7,34 @@ python:
   - "3.7-dev"
   - "3.8-dev"
   - "nightly"
+
 branches:
   only:
     - master
     - develop
-# command to install dependencies
+
+stages:
+  - lint
+  - test
+
+jobs:
+  include:
+    - stage: lint
+      sctipt:
+        - flake8 ife --ignore E501
+        - black --diff ife
+        - mypy --strict-optional --disallow-untyped-defs --disallow-untyped-calls --ignore-missing-imports --no-incremental ife
+    - stage: test
+      install:
+        - poetry install -v
+        - pip install coveralls
+      script:
+        - coverage run -m unittest discover
+
 before_install:
   - pip install --upgrade pip
+  - pip install black
   - pip install poetry
-install:
-  - poetry install -v
-  - pip install coveralls
-script:
-  - coverage run -m unittest discover
+
 after_success:
   - coverallspoetrey
