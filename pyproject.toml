@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "ife"
+version = "0.0.2"
+description = "You can get a nice global image feature!"
+authors = ["HokutoTateyama <ht235711@yahoo.co.jp>"]
+repository = "https://github.com/Collonville/ImageFeatureExtractor"
+license = "BSD-3-Clause"
+readme = "README.md"
+classifiers =[
+    "Development Status :: 2 - Pre-Alpha",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Topic :: Scientific/Engineering"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+Pillow = "^6.1"
+colour-science = "^0.3.13"
+pandas = "^0.25.0"
+mypy = "^0.720.0"
+flake8 = "^3.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

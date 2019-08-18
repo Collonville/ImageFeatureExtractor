@@ -1,0 +1,17 @@
+# Python byte code
+__pycache__/
+*.py[cod]
+
+# PyCharm
+.idea/
+
+.coverage
+
+# Poetry build file
+.dist/
+dist/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
