@@ -3,13 +3,12 @@
 [![Build Status](https://travis-ci.org/Collonville/ImageFeatureExtractor.svg?branch=develop)](https://travis-ci.org/Collonville/ImageFeatureExtractor)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/115c65043153459cbfc5026ea53be08d)](https://www.codacy.com/app/Collonville/ImageFeatureExtractor?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Collonville/ImageFeatureExtractor&amp;utm_campaign=Badge_Grade)
 
-## What is this????
+## What is this?
 `IFE` is a package to get an image feature more easily for Python. It contains many kinds of feature extract algorithms.
-
 
 ## 1. Features
 ### Color Moment
-- Mean, Median, Variance, Skewness, Kurtosis of `RGB, HSV, HSL, CMY`
+-   Mean, Median, Variance, Skewness, Kurtosis of `RGB, HSV, HSL, CMY`
 
 ## 2. Examples
 Import the basic image reader of IFE.
@@ -69,33 +68,33 @@ V  0.855882  0.864706  0.013867 -0.155656 -1.498179
 
 ## 3. Future work
 ### IO
-- Read from URL links
-- Read from Base64
-- Sliding window
-- Video files
+-   Read from URL links
+-   Read from Base64
+-   Sliding window
+-   Video files
 
 ### Color space
-- CMYK
-- CIE Lab
-- XYZ
+-   CMYK
+-   CIE Lab
+-   XYZ
 
 ### Features
-- Value normalize
-- Average Gradient
-- LBP
-- Histogram
-- Color harmony
-- Entropy
-- Brightness measure
-- Contrast measure
-- Saturation measure
-- Colourfulness
-- Naturalness
-- Color fidelity metric
-- Saliency map
-- Fisher vector
-- VGG16, 19 layer feature
-- and more...
+-   Value normalize
+-   Average Gradient
+-   LBP
+-   Histogram
+-   Color harmony
+-   Entropy
+-   Brightness measure
+-   Contrast measure
+-   Saturation measure
+-   Colourfulness
+-   Naturalness
+-   Color fidelity metric
+-   Saliency map
+-   Fisher vector
+-   VGG16, 19 layer feature
+-   and more...
 
 ## 4. Author
 @Collonville
