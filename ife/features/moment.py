@@ -1,40 +1,35 @@
-from typing import Optional, Union
+from typing import Optional, List, Tuple
 
 import numpy as np
 from scipy import stats
 
 
-def get_method(method: Optional[Union[str, list]] = None):
-    if method is None:
-        return MOMENT_METHODS.values()
-    else:
-        return [MOMENT_METHODS[method_name] for method_name in [method]]
+def get_moments(
+    methods: Optional[List[str]], np_2d_image: np.ndarray
+) -> Tuple[np.ndarray, List[str]]:
+    if methods is None:
+        methods = ["mean", "median", "var", "skew", "kurtosis"]
+
+    moments = np.array([eval(method)(np_2d_image) for method in methods])
+
+    return moments, methods
 
 
-def mean(np_2d_image: np.ndarray):
+def mean(np_2d_image: np.ndarray) -> np.ndarray:
     return np.mean(np_2d_image, axis=0)
 
 
-def median(np_2d_image: np.ndarray):
+def median(np_2d_image: np.ndarray) -> np.ndarray:
     return np.median(np_2d_image, axis=0)
 
 
-def var(np_2d_image: np.ndarray):
+def var(np_2d_image: np.ndarray) -> np.ndarray:
     return np.var(np_2d_image, axis=0)
 
 
-def skew(np_2d_image: np.ndarray):
+def skew(np_2d_image: np.ndarray) -> np.ndarray:
     return stats.skew(np_2d_image, axis=0)
 
 
-def kurtosis(np_2d_image: np.ndarray):
+def kurtosis(np_2d_image: np.ndarray) -> np.ndarray:
     return stats.kurtosis(np_2d_image, axis=0)
-
-
-MOMENT_METHODS = {
-    "Mean": mean,
-    "Median": median,
-    "Var": var,
-    "Skew": skew,
-    "kurtosis": kurtosis,
-}

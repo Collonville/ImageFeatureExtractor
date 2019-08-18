@@ -1,8 +1,9 @@
 import colour
 import numpy as np
+from typing import Optional
 
 
-def to_2d_array(array: np.ndarray):
+def to_2d_array(array: np.ndarray) -> np.ndarray:
     dimension = len(array.shape)
 
     if dimension == 1:
@@ -14,9 +15,9 @@ def to_2d_array(array: np.ndarray):
 
 
 def convert_color_space_from_rgb(
-    np_image: np.ndarray, dest_color_space: str
+    np_image: np.ndarray, dest_color_space: Optional[str]
 ) -> np.ndarray:
-    if dest_color_space == "RGB":
+    if dest_color_space is None or dest_color_space == "RGB":
         return np_image
     elif dest_color_space == "HSV":
         return colour.RGB_to_HSV(np_image)

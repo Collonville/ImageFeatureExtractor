@@ -2,17 +2,17 @@ import unittest
 
 
 class TestMoment(unittest.TestCase):
-    def test_mean(self):
+    def test_mean(self) -> None:
         pass
 
-    def test_median(self):
+    def test_median(self) -> None:
         pass
 
-    def test_var(self):
+    def test_var(self) -> None:
         pass
 
-    def test_skew(self):
+    def test_skew(self) -> None:
         pass
 
-    def test_kurtosis(self):
+    def test_kurtosis(self) -> None:
         pass

@@ -8,7 +8,7 @@ from ife.io.io import ImageReader
 
 
 class TestMomentFeatures(unittest.TestCase):
-    def test_output_type(self):
+    def test_output_type(self) -> None:
         features = ImageReader.read_from_single_file("ife/data/small_rgb.jpg")
 
         moment = features.moment()
@@ -19,7 +19,7 @@ class TestMomentFeatures(unittest.TestCase):
 
         moment = features.moment(output_type="one_col")
         self.assertIs(np.ndarray, type(moment))
-        self.assertEqual(np.zeros(15).shape, moment.shape)
+        self.assertEqual(np.zeros(15).shape, moment.shape)  # type: ignore
 
         moment = features.moment(output_type="dict")
         self.assertIs(defaultdict, type(moment))

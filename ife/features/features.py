@@ -1,9 +1,8 @@
 from collections import defaultdict
+from typing import Optional, Union, List
 
 import numpy as np
 import pandas as pd
-
-from typing import Optional, Union
 
 from ife.util.array import to_2d_array, convert_color_space_from_rgb
 from . import moment
@@ -12,34 +11,32 @@ from . import moment
 class Features:
     np_image: np.ndarray
 
-    def __init__(self, np_image):
+    def __init__(self, np_image: np.ndarray) -> None:
         self.np_image = np_image
 
     def moment(
         self,
-        required_methods: Optional[Union[str, list]] = None,
-        color_space: Optional[str] = "RGB",
+        required_methods: Optional[List[str]] = None,
+        color_space: Optional[str] = None,
         output_type: Optional[str] = None,
-    ):
+    ) -> Union[np.ndarray, dict, pd.DataFrame]:
+        color_space = "RGB" if color_space is None else color_space
+
         np_2d_image = convert_color_space_from_rgb(
             to_2d_array(self.np_image), color_space
         )
 
-        method_list = moment.get_method(required_methods)
+        moments, method_list = moment.get_moments(required_methods, np_2d_image)
 
-        moment_value = np.array([method(np_2d_image) for method in method_list])
-
-        if output_type is None or output_type is "":
-            return moment_value
+        if output_type is None or output_type == "":
+            return moments
         elif output_type == "one_col":
-            return moment_value.flatten()
+            return moments.flatten()
 
-        dict_result = defaultdict(dict)
+        dict_result = defaultdict(dict)  # type: defaultdict
         for method_idx, method in enumerate(method_list):
-            for index in range(moment_value.shape[1]):
-                dict_result[method.__name__][color_space[index]] = moment_value[
-                    method_idx, index
-                ]
+            for index in range(moments.shape[1]):
+                dict_result[method][color_space[index]] = moments[method_idx, index]
 
         if output_type == "dict":
             return dict_result
