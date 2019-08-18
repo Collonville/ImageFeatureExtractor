@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "imagefeatureextractor"
+name = "ife"
 version = "0.1.0"
 description = "You can get a nice global image feature!!"
 authors = ["HokutoTateyama <ht235711@yahoo.co.jp>"]
@@ -8,8 +8,10 @@ license = "BSD-3-Clause"
 readme = "README.md"
 classifiers =[
     "Development Status :: 2 - Pre-Alpha",
-    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
     "Topic :: Scientific/Engineering"
 ]
 

@@ -1,4 +1,4 @@
-#Python byte code
+# Python byte code
 __pycache__/
 *.py[cod]
 
@@ -6,3 +6,7 @@ __pycache__/
 .idea/
 
 .coverage
+
+# Poetry build file
+.dist/
+dist/
