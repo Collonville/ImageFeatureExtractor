@@ -10,7 +10,7 @@ def get_moments(
     if methods is None:
         methods = ["mean", "median", "var", "skew", "kurtosis"]
 
-    moments = np.array([eval(method)(np_2d_image) for method in methods])
+    moments = np.array([METHODS[method](np_2d_image) for method in methods])
 
     return moments, methods
 
@@ -33,3 +33,12 @@ def skew(np_2d_image: np.ndarray) -> np.ndarray:
 
 def kurtosis(np_2d_image: np.ndarray) -> np.ndarray:
     return stats.kurtosis(np_2d_image, axis=0)
+
+
+METHODS = {
+    "mean": mean,
+    "median": median,
+    "var": var,
+    "skew": skew,
+    "kurtosis": kurtosis,
+}

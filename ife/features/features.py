@@ -16,7 +16,7 @@ class Features:
 
     def moment(
         self,
-        required_methods: Optional[List[str]] = None,
+        methods: Optional[List[str]] = None,
         color_space: Optional[str] = None,
         output_type: Optional[str] = None,
     ) -> Union[np.ndarray, dict, pd.DataFrame]:
@@ -26,7 +26,7 @@ class Features:
             to_2d_array(self.np_image), color_space
         )
 
-        moments, method_list = moment.get_moments(required_methods, np_2d_image)
+        moments, method_list = moment.get_moments(methods, np_2d_image)
 
         if output_type is None or output_type == "":
             return moments
