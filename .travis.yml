@@ -15,13 +15,18 @@ branches:
 
 stages:
   - lint
-  - test
 
 before_install:
   - pip install --upgrade pip
   - pip install black
   - pip install poetry
+
+install:
   - poetry install -v
+  - pip install coveralls
+script:
+  - coverage run -m unittest discover
+
 
 jobs:
   include:
@@ -30,11 +35,6 @@ jobs:
         - flake8 ife --ignore E501
         - black --diff ife
         - mypy --strict-optional --disallow-untyped-defs --disallow-untyped-calls --ignore-missing-imports --no-incremental ife
-    - stage: test
-      install:
-        - pip install coveralls
-      script:
-        - coverage run -m unittest discover
 
 
 
