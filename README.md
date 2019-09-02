@@ -4,7 +4,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/115c65043153459cbfc5026ea53be08d)](https://www.codacy.com/app/Collonville/ImageFeatureExtractor?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Collonville/ImageFeatureExtractor&amp;utm_campaign=Badge_Grade)
 [![PyPI version](https://badge.fury.io/py/ife.svg)](https://badge.fury.io/py/ife)
 
-## What is this...
+## What is this
 `IFE` is a package to get an image feature more easily for Python. It contains many kinds of feature extract algorithms.
 
 ## Insatall
