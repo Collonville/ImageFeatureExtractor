@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 from ife.util.array import to_2d_array, convert_color_space_from_rgb
-from . import moment
+from . import moment, colourfulness
 
 
 class Features:
@@ -42,5 +42,24 @@ class Features:
             return dict_result
         elif output_type == "pandas":
             return pd.DataFrame(dict_result)
+        else:
+            raise ValueError("Undefined output type.")
+
+    def colourfulness(
+        self, output_type: Optional[str] = None
+    ) -> Union[np.float64, np.ndarray, dict, pd.DataFrame]:
+        np_2d_image = to_2d_array(self.np_image)
+
+        value = colourfulness.colourfulness(np_2d_image)
+
+        if output_type is None or output_type == "" or output_type == "one_col":
+            return value
+
+        dict_result = {"colourfulness": value}
+
+        if output_type == "dict":
+            return dict_result
+        elif output_type == "pandas":
+            return pd.DataFrame(dict_result, index=["value"])
         else:
             raise ValueError("Undefined output type.")
