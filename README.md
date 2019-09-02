@@ -16,6 +16,8 @@ pip install ife
 ## 1. Features
 ### Color Moment
 -   Mean, Median, Variance, Skewness, Kurtosis of `RGB, HSV, HSL, CMY`
+### Colourfulness
+-   Colourfulness measure of the image
 
 ## 2. Examples
 Import the basic image reader of IFE.
@@ -72,6 +74,14 @@ H  0.507983  0.519156  0.132902 -0.078898 -1.259910
 S  0.595236  0.749543  0.122723 -1.028366 -0.768867
 V  0.855882  0.864706  0.013867 -0.155656 -1.498179
 ```
+## 2.2 Colourfulness
+-  [ref]D. Hasler and S.E.Suesstrunk, ``Measuring colorfulness in natural images," Human
+    Vision andElectronicImagingVIII, Proceedings of the SPIE, 5007:87-95, 2003.
+```python
+>>> features = ImageReader.read_from_single_file("ife/data/strawberry.jpg")
+>>> features.colourfulness()
+0.18441700366624714
+```
 
 ## 3. Future work
 ### IO
@@ -95,7 +105,7 @@ V  0.855882  0.864706  0.013867 -0.155656 -1.498179
 -   Brightness measure
 -   Contrast measure
 -   Saturation measure
--   Colourfulness
+
 -   Naturalness
 -   Color fidelity metric
 -   Saliency map
