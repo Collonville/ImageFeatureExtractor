@@ -105,7 +105,6 @@ V  0.855882  0.864706  0.013867 -0.155656 -1.498179
 -   Brightness measure
 -   Contrast measure
 -   Saturation measure
-
 -   Naturalness
 -   Color fidelity metric
 -   Saliency map
