@@ -29,6 +29,8 @@ from ife.io.io import ImageReader
 Add a image file path to `read_from_single_file()`. This will return basic features class.
 
 And now! You can get a RGB color moment feature from image!!
+
+### Sample
 ```python
 >>> features = ImageReader.read_from_single_file("ife/data/small_rgb.jpg")
 >>> features.moment()
@@ -75,8 +77,11 @@ S  0.595236  0.749543  0.122723 -1.028366 -0.768867
 V  0.855882  0.864706  0.013867 -0.155656 -1.498179
 ```
 ## 2.2 Colourfulness
--  [ref]D. Hasler and S.E.Suesstrunk, ``Measuring colorfulness in natural images," Human
-    Vision andElectronicImagingVIII, Proceedings of the SPIE, 5007:87-95, 2003.
+### Reference
+D. Hasler and S.E.Suesstrunk, ``Measuring colorfulness in natural images," Human
+Vision andElectronicImagingVIII, Proceedings of the SPIE, 5007:87-95, 2003.
+
+### Sample
 ```python
 >>> features = ImageReader.read_from_single_file("ife/data/strawberry.jpg")
 >>> features.colourfulness()
